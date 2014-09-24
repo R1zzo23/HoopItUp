@@ -8,3 +8,8 @@ E:\Coding\HoopItUp\HoopItUp\obj\x86\Debug\HoopItUp.pdb
 E:\Coding\HoopItUp\HoopItUp\bin\Debug\HoopItUp.exe
 E:\Coding\HoopItUp\HoopItUp\bin\Debug\HoopItUp.pdb
 E:\Coding\HoopItUp\HoopItUp\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\Coding\HoopItUp\HoopItUp\obj\x86\Debug\HoopItUp.exe
+F:\Coding\HoopItUp\HoopItUp\obj\x86\Debug\HoopItUp.pdb
+F:\Coding\HoopItUp\HoopItUp\bin\Debug\HoopItUp.exe
+F:\Coding\HoopItUp\HoopItUp\bin\Debug\HoopItUp.pdb
+F:\Coding\HoopItUp\HoopItUp\obj\x86\Debug\HoopItUp.csprojResolveAssemblyReference.cache

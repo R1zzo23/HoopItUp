@@ -47,6 +47,7 @@ namespace HoopItUp
 
             FullName = (FirstName + " " + LastName);
 
+            Console.WriteLine();
             Console.WriteLine("Your name is {0}.", FullName);
             Console.Write("Is this correct? Y/N: ");
             string CorrectName = Console.ReadLine();
@@ -116,6 +117,7 @@ namespace HoopItUp
 
             Height = (Feet * 12) + Inches;
 
+            Console.WriteLine();
             Console.WriteLine("Your height is {0}'{1}\".", Feet, Inches);
             Console.Write("Is this correct? Y/N: ");
             string CorrectHeight = Console.ReadLine();
@@ -161,6 +163,7 @@ namespace HoopItUp
                 Weight = int.Parse(MyWeight);
             }
 
+            Console.WriteLine();
             Console.WriteLine("Your weight is {0}.", Weight);
             Console.Write("Is this correct? Y/N: ");
             string CorrectWeight = Console.ReadLine();
@@ -187,7 +190,7 @@ namespace HoopItUp
         public static void GiveAttributes()
         {
             Console.WriteLine("HELP - It's time to select your attributes on the court. You");
-            Console.WriteLine("start with 200 attribute points to spread out across six ");
+            Console.WriteLine("start with 150 attribute points to spread out across six ");
             Console.WriteLine("different skills. The skills are shooting, handles, driving, ");
             Console.WriteLine("rebounding, defense and steals.");
             Console.ReadLine();
@@ -216,9 +219,11 @@ namespace HoopItUp
             {
                 if (shooting >= 10 && shooting <= 50)
                 {
+                    Console.Clear();
                     Console.WriteLine("Shooting: {0}", shooting);
-                    Console.WriteLine("Points Remaining: " + (200 - shooting));
-                    Console.ReadLine();
+                    Console.WriteLine("Points Remaining: " + (150 - shooting));
+                    Console.WriteLine();
+                    Console.Clear();
                     CreateDrive();
                 }
                 else
@@ -245,12 +250,22 @@ namespace HoopItUp
 
             while (true)
             {
-                if (drive >= 10 && drive <= 50)
+                if ((shooting + drive) > 130)
                 {
+                    Console.WriteLine("You have used too many points. You won't be able");
+                    Console.WriteLine("to reach the attribute minimum for all abilities.");
+                    Console.WriteLine("Please start again.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    CreateShooting();
+                }
+                else if (drive >= 10 && drive <= 50)
+                {
+                    Console.Clear();
                     Console.WriteLine("Shooting: {0}", shooting);
                     Console.WriteLine("Driving: {0}", drive);
-                    Console.WriteLine("Points Remaining: " + (200 - (shooting + drive)));
-                    Console.ReadLine();
+                    Console.WriteLine("Points Remaining: " + (150 - (shooting + drive)));
+                    Console.WriteLine();
                     CreateHandle();
                 }
                 else
@@ -277,13 +292,23 @@ namespace HoopItUp
 
             while (true)
             {
-                if (shooting >= 10 && shooting <= 50)
+                if ((shooting + handle + drive) > 120)
                 {
+                    Console.WriteLine("You have used too many points. You won't be able");
+                    Console.WriteLine("to reach the attribute minimum for all abilities.");
+                    Console.WriteLine("Please start again.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    CreateShooting();
+                }
+                else if (handle >= 10 && handle <= 50)
+                {
+                    Console.Clear();
                     Console.WriteLine("Shooting: {0}", shooting);
                     Console.WriteLine("Driving: {0}", drive);
                     Console.WriteLine("Handle: {0}", handle);
-                    Console.WriteLine("Points Remaining: " + (200 - (shooting + drive + handle)));
-                    Console.ReadLine();
+                    Console.WriteLine("Points Remaining: " + (150 - (shooting + drive + handle)));
+                    Console.WriteLine();
                     CreateRebound();
                 }
                 else
@@ -310,21 +335,25 @@ namespace HoopItUp
 
             while (true)
             {
-                if (rebound >= 10 && rebound <= 50)
+                if ((shooting + handle + drive + rebound) > 130)
                 {
+                    Console.WriteLine("You have used too many points. You won't be able");
+                    Console.WriteLine("to reach the attribute minimum for all abilities.");
+                    Console.WriteLine("Please start again.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    CreateShooting();
+                }
+                else if (rebound >= 10 && rebound <= 50)
+                {
+                    Console.Clear();
                     Console.WriteLine("Shooting: {0}", shooting);
                     Console.WriteLine("Driving: {0}", drive);
                     Console.WriteLine("Handle: {0}", handle);
                     Console.WriteLine("Rebound: {0}", rebound);
-                    Console.WriteLine("Points Remaining: " + (200 - (shooting + drive + handle + rebound)));
-                    Console.ReadLine();
+                    Console.WriteLine("Points Remaining: " + (150 - (shooting + drive + handle + rebound)));
+                    Console.WriteLine();
                     CreateDefense();
-                }
-                else if ((shooting + handle + drive + rebound) > 180)
-                {
-                    Console.WriteLine("You have used too many points. Please start again.");
-                    Console.ReadLine();
-                    CreateShooting();
                 }
                 else
                 {
@@ -350,22 +379,26 @@ namespace HoopItUp
 
             while (true)
             {
-                if (defense >= 10 && defense <= 50)
+                if ((shooting + handle + drive + rebound + defense) > 140)
                 {
+                    Console.WriteLine("You have used too many points. You won't be able");
+                    Console.WriteLine("to reach the attribute minimum for all abilities.");
+                    Console.WriteLine("Please start again.");
+                    Console.ReadLine();
+                    Console.Clear();
+                    CreateShooting();
+                }
+                else if (defense >= 10 && defense <= 50)
+                {
+                    Console.Clear();
                     Console.WriteLine("Shooting: {0}", shooting);
                     Console.WriteLine("Driving: {0}", drive);
                     Console.WriteLine("Handle: {0}", handle);
                     Console.WriteLine("Rebound: {0}", rebound);
                     Console.WriteLine("Defense: {0}", defense);
-                    Console.WriteLine("Points Remaining: " + (200 - (shooting + drive + handle + rebound + defense)));
-                    Console.ReadLine();
+                    Console.WriteLine("Points Remaining: " + (150 - (shooting + drive + handle + rebound + defense)));
+                    Console.WriteLine();
                     CreateSteal();
-                }
-                else if ((shooting + handle + drive + rebound + defense) > 190)
-                {
-                    Console.WriteLine("You have used too many points. Please start again.");
-                    Console.ReadLine();
-                    CreateShooting();
                 }
                 else
                 {
@@ -393,18 +426,19 @@ namespace HoopItUp
             {
                 if (steal >= 10 && steal <= 50 )
                 {
-                    if (steal <= (200 - (shooting + drive + handle + rebound + defense)))
+                    if (steal <= (150 - (shooting + drive + handle + rebound + defense)))
                     {
+                        Console.Clear();
                         Console.WriteLine("Shooting: {0}", shooting);
                         Console.WriteLine("Driving: {0}", drive);
                         Console.WriteLine("Handle: {0}", handle);
                         Console.WriteLine("Rebound: {0}", rebound);
                         Console.WriteLine("Defense: {0}", defense);
                         Console.WriteLine("Steal: {0}", steal);
-                        Console.WriteLine("Points Remaining: " + (200 - (shooting + drive + handle + rebound + defense + steal)));
-                        Console.ReadLine();
+                        Console.WriteLine("Points Remaining: " + (150 - (shooting + drive + handle + rebound + defense + steal)));
+                        Console.WriteLine();
 
-                        if (200 > (shooting + drive + handle + rebound + defense + steal))
+                        if (150 > (shooting + drive + handle + rebound + defense + steal))
                         {
                             AddExtraPoints();
                         }
@@ -417,14 +451,14 @@ namespace HoopItUp
                     {
                         Console.WriteLine("You have exceeded the maximum points allowed.");
                         Console.ReadLine();
-                        Console.Write("Enter a number between 10 and " + (200 - (shooting + drive + handle + rebound + defense)) + ": ");
+                        Console.Write("Enter a number between 10 and " + (150 - (shooting + drive + handle + rebound + defense)) + ": ");
                         createSteal = Console.ReadLine();
                         steal = int.Parse(createSteal);
                     }
                 }
                 else
                 {
-                    Console.Write("Please enter a number between 10 and 70: ");
+                    Console.Write("Please enter a number between 10 and 50: ");
                     createSteal = Console.ReadLine();
                     steal = int.Parse(createSteal);
                 }
@@ -433,18 +467,177 @@ namespace HoopItUp
 
         public static void AddExtraPoints()
         {
-            Console.WriteLine("you have " + (200 - (shooting + drive + handle + rebound + defense + steal)) + " points left.");
-            Console.ReadLine();
-            Console.WriteLine("They will be evenly distributed to all of your attributes.");
-            Console.ReadLine();
-            int PointDifference = ((200 - (shooting + drive + handle + rebound + defense + steal)) / 6);
-            shooting = shooting + PointDifference;
-            drive = drive + PointDifference;
-            handle = handle + PointDifference;
-            rebound = rebound + PointDifference;
-            defense = defense + PointDifference;
-            steal = steal + PointDifference;
-            DisplayMyOriginalStats();
+            int RemainingPoints = (150 - (shooting + drive + handle + rebound + defense + steal));
+
+            Console.WriteLine("You have " + (150 - (shooting + drive + handle + rebound + defense + steal)) + " points left.");
+            Console.WriteLine("Where do you want to add some extra points?\n1. Shooting\n2. Drive\n3. Handle\n4. Rebound\n5. Defense\n6. Steal");
+            Console.Write("Enter the number to the corresponding skill you want to add points to: ");
+            string ChooseExtra = Console.ReadLine();
+            int ExtraPoints = int.Parse(ChooseExtra);
+
+            while (ExtraPoints < 1 || ExtraPoints > 5)
+            {
+                Console.Write("Enter a number between 1 & 5: ");
+                ChooseExtra = Console.ReadLine();
+                ExtraPoints = int.Parse(ChooseExtra);
+            }
+
+            if (ExtraPoints == 1)
+            {
+                Console.WriteLine("How many points do you want to add to shooting?");
+                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                string ExtraShooting = Console.ReadLine();
+                int AddShooting = int.Parse(ExtraShooting);
+
+                while (AddShooting < 1 || AddShooting > RemainingPoints)
+                {
+                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    ExtraShooting = Console.ReadLine();
+                    AddShooting = int.Parse(ExtraShooting);
+                }
+
+                shooting = shooting + AddShooting;
+                RemainingPoints = (150 - (shooting + drive + handle + rebound + defense + steal));
+
+                if (RemainingPoints == 0)
+                {
+                    DisplayMyOriginalStats();
+                }
+                else
+                {
+                    AddExtraPoints();
+                }
+            }
+            else if (ExtraPoints == 2)
+            {
+                Console.WriteLine("How many points do you want to add to drive?");
+                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                string ExtraDrive = Console.ReadLine();
+                int AddDrive = int.Parse(ExtraDrive);
+
+                while (AddDrive < 1 || AddDrive > RemainingPoints)
+                {
+                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    ExtraDrive = Console.ReadLine();
+                    AddDrive = int.Parse(ExtraDrive);
+                }
+
+                drive = drive + AddDrive;
+                RemainingPoints = (150 - (shooting + drive + handle + rebound + defense + steal));
+
+                if (RemainingPoints == 0)
+                {
+                    DisplayMyOriginalStats();
+                }
+                else
+                {
+                    AddExtraPoints();
+                }
+            }
+            else if (ExtraPoints == 3)
+            {
+                Console.WriteLine("How many points do you want to add to handle?");
+                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                string ExtraHandle = Console.ReadLine();
+                int AddHandle = int.Parse(ExtraHandle);
+
+                while (AddHandle < 1 || AddHandle > RemainingPoints)
+                {
+                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    ExtraHandle = Console.ReadLine();
+                    AddHandle = int.Parse(ExtraHandle);
+                }
+
+                handle = handle + AddHandle;
+                RemainingPoints = (150 - (shooting + drive + handle + rebound + defense + steal));
+
+                if (RemainingPoints == 0)
+                {
+                    DisplayMyOriginalStats();
+                }
+                else
+                {
+                    AddExtraPoints();
+                }
+            }
+            else if (ExtraPoints == 4)
+            {
+                Console.WriteLine("How many points do you want to add to rebound?");
+                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                string ExtraRebound = Console.ReadLine();
+                int AddRebound = int.Parse(ExtraRebound);
+
+                while (AddRebound < 1 || AddRebound > RemainingPoints)
+                {
+                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    ExtraRebound = Console.ReadLine();
+                    AddRebound = int.Parse(ExtraRebound);
+                }
+
+                rebound = rebound + AddRebound;
+                RemainingPoints = (150 - (shooting + drive + handle + rebound + defense + steal));
+
+                if (RemainingPoints == 0)
+                {
+                    DisplayMyOriginalStats();
+                }
+                else
+                {
+                    AddExtraPoints();
+                }
+            }
+            else if (ExtraPoints == 5)
+            {
+                Console.WriteLine("How many points do you want to add to defense?");
+                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                string ExtraDefense = Console.ReadLine();
+                int AddDefense = int.Parse(ExtraDefense);
+
+                while (AddDefense < 1 || AddDefense > RemainingPoints)
+                {
+                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    ExtraDefense = Console.ReadLine();
+                    AddDefense = int.Parse(ExtraDefense);
+                }
+
+                defense = defense + AddDefense;
+                RemainingPoints = (150 - (shooting + drive + handle + rebound + defense + steal));
+
+                if (RemainingPoints == 0)
+                {
+                    DisplayMyOriginalStats();
+                }
+                else
+                {
+                    AddExtraPoints();
+                }
+            }
+            else
+            {
+                Console.WriteLine("How many points do you want to add to steal?");
+                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                string ExtraSteal = Console.ReadLine();
+                int AddSteal = int.Parse(ExtraSteal);
+
+                while (AddSteal < 1 || AddSteal > RemainingPoints)
+                {
+                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    ExtraSteal = Console.ReadLine();
+                    AddSteal = int.Parse(ExtraSteal);
+                }
+
+                steal = steal + AddSteal;
+                RemainingPoints = (200 - (shooting + drive + handle + rebound + defense + steal));
+
+                if (RemainingPoints == 0)
+                {
+                    DisplayMyOriginalStats();
+                }
+                else
+                {
+                    AddExtraPoints();
+                }
+            }
         }
 
         public static void DisplayMyOriginalStats()
