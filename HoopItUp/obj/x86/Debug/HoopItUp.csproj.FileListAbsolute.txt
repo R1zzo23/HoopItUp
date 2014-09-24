@@ -1,0 +1,10 @@
+C:\Users\arizzo\AppData\Local\Temporary Projects\HoopItUp\bin\Debug\HoopItUp.exe
+C:\Users\arizzo\AppData\Local\Temporary Projects\HoopItUp\bin\Debug\HoopItUp.pdb
+C:\Users\arizzo\AppData\Local\Temporary Projects\HoopItUp\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\arizzo\AppData\Local\Temporary Projects\HoopItUp\obj\x86\Debug\HoopItUp.exe
+C:\Users\arizzo\AppData\Local\Temporary Projects\HoopItUp\obj\x86\Debug\HoopItUp.pdb
+E:\Coding\HoopItUp\HoopItUp\obj\x86\Debug\HoopItUp.exe
+E:\Coding\HoopItUp\HoopItUp\obj\x86\Debug\HoopItUp.pdb
+E:\Coding\HoopItUp\HoopItUp\bin\Debug\HoopItUp.exe
+E:\Coding\HoopItUp\HoopItUp\bin\Debug\HoopItUp.pdb
+E:\Coding\HoopItUp\HoopItUp\obj\x86\Debug\ResolveAssemblyReference.cache
