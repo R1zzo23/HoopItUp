@@ -24,6 +24,10 @@ namespace HoopItUp
         static public int defense;
         static public int steal;
 
+        static public int CareerWins = 0;
+        static public int CareerLosses = 0;
+        static public int CareerGames = CareerWins + CareerLosses;
+
         public static void CreateName()
         {
             Console.WriteLine("What is the name the fans of RHS will know you by?");
@@ -223,7 +227,6 @@ namespace HoopItUp
                     Console.WriteLine("Shooting: {0}", shooting);
                     Console.WriteLine("Points Remaining: " + (150 - shooting));
                     Console.WriteLine();
-                    Console.Clear();
                     CreateDrive();
                 }
                 else
@@ -470,7 +473,13 @@ namespace HoopItUp
             int RemainingPoints = (150 - (shooting + drive + handle + rebound + defense + steal));
 
             Console.WriteLine("You have " + (150 - (shooting + drive + handle + rebound + defense + steal)) + " points left.");
-            Console.WriteLine("Where do you want to add some extra points?\n1. Shooting\n2. Drive\n3. Handle\n4. Rebound\n5. Defense\n6. Steal");
+            Console.WriteLine("Where do you want to add some extra points?");
+            Console.WriteLine("1. Shooting (" + shooting + ")");
+            Console.WriteLine("2. Drive (" + drive + ")");
+            Console.WriteLine("3. Handle (" + handle + ")");
+            Console.WriteLine("4. Rebound (" + rebound + ")");
+            Console.WriteLine("5. Defense (" + defense + ")");
+            Console.WriteLine("6. Steal (" + steal + ")");
             Console.Write("Enter the number to the corresponding skill you want to add points to: ");
             string ChooseExtra = Console.ReadLine();
             int ExtraPoints = int.Parse(ChooseExtra);
@@ -485,20 +494,19 @@ namespace HoopItUp
             if (ExtraPoints == 1)
             {
                 Console.WriteLine("How many points do you want to add to shooting?");
-                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50-shooting)) + ": ");
                 string ExtraShooting = Console.ReadLine();
                 int AddShooting = int.Parse(ExtraShooting);
 
-                while (AddShooting < 1 || AddShooting > RemainingPoints)
+                while (AddShooting < 0 || AddShooting > Math.Min(RemainingPoints, (50 - shooting)))
                 {
-                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - shooting)) + ": ");
                     ExtraShooting = Console.ReadLine();
                     AddShooting = int.Parse(ExtraShooting);
                 }
 
                 shooting = shooting + AddShooting;
                 RemainingPoints = (150 - (shooting + drive + handle + rebound + defense + steal));
-
                 if (RemainingPoints == 0)
                 {
                     DisplayMyOriginalStats();
@@ -511,13 +519,13 @@ namespace HoopItUp
             else if (ExtraPoints == 2)
             {
                 Console.WriteLine("How many points do you want to add to drive?");
-                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - drive)) + ": ");
                 string ExtraDrive = Console.ReadLine();
                 int AddDrive = int.Parse(ExtraDrive);
 
-                while (AddDrive < 1 || AddDrive > RemainingPoints)
+                while (AddDrive < 0 || AddDrive > Math.Min(RemainingPoints, (50 - drive)))
                 {
-                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - drive)) + ": ");
                     ExtraDrive = Console.ReadLine();
                     AddDrive = int.Parse(ExtraDrive);
                 }
@@ -537,13 +545,13 @@ namespace HoopItUp
             else if (ExtraPoints == 3)
             {
                 Console.WriteLine("How many points do you want to add to handle?");
-                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - handle)) + ": ");
                 string ExtraHandle = Console.ReadLine();
                 int AddHandle = int.Parse(ExtraHandle);
 
-                while (AddHandle < 1 || AddHandle > RemainingPoints)
+                while (AddHandle < 0 || AddHandle > Math.Min(RemainingPoints, (50 - handle)))
                 {
-                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - handle)) + ": ");
                     ExtraHandle = Console.ReadLine();
                     AddHandle = int.Parse(ExtraHandle);
                 }
@@ -562,14 +570,14 @@ namespace HoopItUp
             }
             else if (ExtraPoints == 4)
             {
-                Console.WriteLine("How many points do you want to add to rebound?");
-                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                Console.WriteLine("How many points do you want to add  to rebound?");
+                Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - rebound)) + ": ");
                 string ExtraRebound = Console.ReadLine();
                 int AddRebound = int.Parse(ExtraRebound);
 
-                while (AddRebound < 1 || AddRebound > RemainingPoints)
+                while (AddRebound < 0 || AddRebound > Math.Min(RemainingPoints, (50 - rebound)))
                 {
-                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - rebound)) + ": ");
                     ExtraRebound = Console.ReadLine();
                     AddRebound = int.Parse(ExtraRebound);
                 }
@@ -589,13 +597,13 @@ namespace HoopItUp
             else if (ExtraPoints == 5)
             {
                 Console.WriteLine("How many points do you want to add to defense?");
-                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - defense)) + ": ");
                 string ExtraDefense = Console.ReadLine();
                 int AddDefense = int.Parse(ExtraDefense);
 
-                while (AddDefense < 1 || AddDefense > RemainingPoints)
+                while (AddDefense < 0 || AddDefense > Math.Min(RemainingPoints, (50-defense)))
                 {
-                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - defense)) + ": ");
                     ExtraDefense = Console.ReadLine();
                     AddDefense = int.Parse(ExtraDefense);
                 }
@@ -615,13 +623,13 @@ namespace HoopItUp
             else
             {
                 Console.WriteLine("How many points do you want to add to steal?");
-                Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - steal)) + ": ");
                 string ExtraSteal = Console.ReadLine();
                 int AddSteal = int.Parse(ExtraSteal);
 
-                while (AddSteal < 1 || AddSteal > RemainingPoints)
+                while (AddSteal < 0 || AddSteal > Math.Min(RemainingPoints, (50 - steal)))
                 {
-                    Console.Write("Enter a number between 1 and " + RemainingPoints + ": ");
+                    Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - steal)) + ": ");
                     ExtraSteal = Console.ReadLine();
                     AddSteal = int.Parse(ExtraSteal);
                 }
