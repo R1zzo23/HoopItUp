@@ -27,7 +27,7 @@ namespace HoopItUp
             Console.ReadLine();
 
             MyPlayer.CreateName();
-            
+                        
         }
     }
 }

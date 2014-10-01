@@ -1,0 +1,14 @@
+F:\Coding\HoopItUp\HoopItUp\bin\Release\HoopItUp.exe
+F:\Coding\HoopItUp\HoopItUp\bin\Release\HoopItUp.pdb
+F:\Coding\HoopItUp\HoopItUp\obj\x86\Release\HoopItUp.exe
+F:\Coding\HoopItUp\HoopItUp\obj\x86\Release\HoopItUp.pdb
+E:\Coding\HoopItUp\HoopItUp\bin\Release\HoopItUp.exe
+E:\Coding\HoopItUp\HoopItUp\bin\Release\HoopItUp.pdb
+E:\Coding\HoopItUp\HoopItUp\obj\x86\Release\HoopItUp.exe
+E:\Coding\HoopItUp\HoopItUp\obj\x86\Release\HoopItUp.pdb
+F:\Coding\HoopItUp\HoopItUp\obj\x86\Release\HoopItUp.csprojResolveAssemblyReference.cache
+C:\Users\arizzo\Desktop\HoopItUp\HoopItUp\bin\Release\HoopItUp.exe
+C:\Users\arizzo\Desktop\HoopItUp\HoopItUp\bin\Release\HoopItUp.pdb
+C:\Users\arizzo\Desktop\HoopItUp\HoopItUp\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\arizzo\Desktop\HoopItUp\HoopItUp\obj\x86\Release\HoopItUp.exe
+C:\Users\arizzo\Desktop\HoopItUp\HoopItUp\obj\x86\Release\HoopItUp.pdb

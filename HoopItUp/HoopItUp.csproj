@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commentary.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="MyPlayer.cs" />
     <Compile Include="Opponent.cs" />
     <Compile Include="Program.cs" />

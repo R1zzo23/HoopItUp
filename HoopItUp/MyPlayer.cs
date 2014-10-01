@@ -24,6 +24,36 @@ namespace HoopItUp
         static public int defense;
         static public int steal;
 
+        static public float ShotAttemptsGame = 0;
+        static public float ShotMakesGame = 0;
+        static public float DriveAttemptsGame = 0;
+        static public float DriveMakesGame = 0;
+        static public float PutbackAttemptsGame = 0;
+        static public float PutbackMakesGame = 0;
+        static public float TurnoversGame = 0;
+        static public float StealsGame = 0;
+        static public float DefensiveReboundsGame = 0;
+        static public float OffensiveReboundsGame = 0;
+
+        static public int ShotAttemptsCareer = 0;
+        static public int ShotMakesCareer = 0;
+        static public int DriveAttemptsCareer = 0;
+        static public int DriveMakesCareer = 0;
+        static public int PutbackAttemptsCareer = 0;
+        static public int PutbackMakesCareer = 0;
+        static public int TurnoversCareer = 0;
+        static public int StealsCareer = 0;
+        static public int DefensiveReboundsCareer = 0;
+        static public int OffensiveReboundsCareer = 0;
+        static public int TotalReboundsCareer = DefensiveReboundsCareer + OffensiveReboundsCareer;
+        static public int TotalAttemptsCareer = ShotAttemptsCareer + DriveAttemptsCareer + PutbackAttemptsCareer;
+        static public int TotalMakesCareer = ShotMakesCareer + DriveMakesCareer + PutbackMakesCareer;
+
+        /*static public int ShortPercentageCareer = ShotMakesCareer / ShotAttemptsCareer;
+        static public int DrivePercentageCareer = DriveMakesCareer / DriveAttemptsCareer;
+        static public int PutbackPercentageCareer = PutbackMakesCareer / PutbackAttemptsCareer;
+        static public int TotalAttemptsPercentageCareer = TotalMakesCareer / TotalAttemptsCareer;*/
+
         static public int CareerWins = 0;
         static public int CareerLosses = 0;
         static public int CareerGames = CareerWins + CareerLosses;
@@ -482,6 +512,13 @@ namespace HoopItUp
             Console.WriteLine("6. Steal (" + steal + ")");
             Console.Write("Enter the number to the corresponding skill you want to add points to: ");
             string ChooseExtra = Console.ReadLine();
+            
+            while (ChooseExtra.Length < 1)
+            {
+                Console.Write("Enter the number to the corresponding skill you want to add points to: ");
+                ChooseExtra = Console.ReadLine();
+            }
+
             int ExtraPoints = int.Parse(ChooseExtra);
 
             while (ExtraPoints < 1 || ExtraPoints > 5)
@@ -662,6 +699,75 @@ namespace HoopItUp
             Console.WriteLine("Rebound: {0}", rebound);
             Console.WriteLine("Defense: {0}", defense);
             Console.WriteLine("Steal: {0}", steal);
+            Console.ReadLine();
+
+            Opponent.CreateFirstOpponent();
+        }
+
+        public static void DisplayGameStats()
+        {
+            float ShotPercentageGame;
+            float DrivePercentageGame;
+            float PutbackPercentageGame;
+            float TotalAttemptsPercentageGame;
+            float TotalReboundsGame = OffensiveReboundsGame + DefensiveReboundsGame;
+            float TotalAttemptsGame = ShotAttemptsGame + DriveAttemptsGame + PutbackAttemptsGame;
+            float TotalMakesGame = ShotMakesGame + DriveMakesGame + PutbackMakesGame;
+
+            if (ShotAttemptsGame == 0)
+            {
+                ShotPercentageGame = 0;
+            }
+            else
+            {
+                ShotPercentageGame = (ShotMakesGame / ShotAttemptsGame);
+            }
+
+            if (DriveAttemptsGame == 0)
+            {
+                DrivePercentageGame = 0;
+            }
+            else
+            {
+                DrivePercentageGame = (DriveMakesGame / DriveAttemptsGame);
+            }
+
+            if (PutbackAttemptsGame == 0)
+            {
+                PutbackPercentageGame = 0;
+            }
+            else
+            {
+                PutbackPercentageGame = (PutbackMakesGame / PutbackAttemptsGame);
+            }
+            
+            TotalAttemptsPercentageGame = (TotalMakesGame / TotalAttemptsGame);
+            
+
+            Console.WriteLine("Let's take a look at your stats from this past game.");
+            Console.ReadLine();
+            Console.WriteLine("Jumpshots Made: {0}", ShotMakesGame);
+            Console.WriteLine("Jumpshots Attempted: {0}", ShotAttemptsGame);
+            Console.WriteLine("Jumpshot Percentage: {0}%", (ShotPercentageGame * 100));
+            Console.WriteLine();
+            Console.WriteLine("Drives Finished: {0}", DriveMakesGame);
+            Console.WriteLine("Drives Attempted: {0}", DriveAttemptsGame);
+            Console.WriteLine("Drive Percentage: {0}%", (DrivePercentageGame * 100));
+            Console.WriteLine();
+            Console.WriteLine("Putback Makes: {0}", PutbackMakesGame);
+            Console.WriteLine("Putback Attempts: {0}", PutbackAttemptsGame);
+            Console.WriteLine("Putback Percentage: {0}%", (PutbackPercentageGame * 100));
+            Console.WriteLine();
+            Console.WriteLine("Total Shot Makes: {0}", TotalMakesGame);
+            Console.WriteLine("Total Shot Attempts: {0}", TotalAttemptsGame);
+            Console.WriteLine("Total Shot Percentage: {0}%", (TotalAttemptsPercentageGame * 100));
+            Console.WriteLine();
+            Console.WriteLine("Offensive Rebounds: {0}", OffensiveReboundsGame);
+            Console.WriteLine("Defensive Rebounds: {0}", DefensiveReboundsGame);
+            Console.WriteLine("Total Rebounds: {0}", TotalReboundsGame);
+            Console.WriteLine();
+            Console.WriteLine("Steals: {0}", StealsGame);
+            Console.WriteLine("Turnovers: {0}", TurnoversGame);
             Console.ReadLine();
         }
     }
