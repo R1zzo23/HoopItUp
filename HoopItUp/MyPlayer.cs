@@ -521,7 +521,7 @@ namespace HoopItUp
 
             int ExtraPoints = int.Parse(ChooseExtra);
 
-            while (ExtraPoints < 1 || ExtraPoints > 5)
+            while (ExtraPoints < 1 || ExtraPoints > 6)
             {
                 Console.Write("Enter a number between 1 & 5: ");
                 ChooseExtra = Console.ReadLine();
@@ -657,7 +657,7 @@ namespace HoopItUp
                     AddExtraPoints();
                 }
             }
-            else
+            else if (ExtraPoints == 6)
             {
                 Console.WriteLine("How many points do you want to add to steal?");
                 Console.Write("Enter a number between 0 and " + Math.Min(RemainingPoints, (50 - steal)) + ": ");
@@ -672,7 +672,7 @@ namespace HoopItUp
                 }
 
                 steal = steal + AddSteal;
-                RemainingPoints = (200 - (shooting + drive + handle + rebound + defense + steal));
+                RemainingPoints = (150 - (shooting + drive + handle + rebound + defense + steal));
 
                 if (RemainingPoints == 0)
                 {
@@ -683,22 +683,28 @@ namespace HoopItUp
                     AddExtraPoints();
                 }
             }
+            else
+            {
+                Console.Write("Enter a number between 1 and 5: ");
+                ChooseExtra = Console.ReadLine();
+                ExtraPoints = int.Parse(ChooseExtra);
+            }
         }
 
         public static void DisplayMyOriginalStats()
         {
             Console.Clear();
             Console.WriteLine("Here are your starting attributes:");
-            Console.WriteLine("Name: {0}", FullName);
-            Console.WriteLine("Height: {0}'{1}\"", Feet, Inches);
-            Console.WriteLine("Weight: {0}", Weight);
-            Console.WriteLine("Level: {0}", Level);
-            Console.WriteLine("Shooting: {0}", shooting);
-            Console.WriteLine("Driving: {0}", drive);
-            Console.WriteLine("Handles: {0}", handle);
-            Console.WriteLine("Rebound: {0}", rebound);
-            Console.WriteLine("Defense: {0}", defense);
-            Console.WriteLine("Steal: {0}", steal);
+            Console.WriteLine("Name...........{0}", FullName);
+            Console.WriteLine("Height.........{0}'{1}\"", Feet, Inches);
+            Console.WriteLine("Weight.........{0}", Weight);
+            Console.WriteLine("Level..........{0}", Level);
+            Console.WriteLine("Shooting.......{0}", shooting);
+            Console.WriteLine("Driving........{0}", drive);
+            Console.WriteLine("Handles........{0}", handle);
+            Console.WriteLine("Rebound........{0}", rebound);
+            Console.WriteLine("Defense........{0}", defense);
+            Console.WriteLine("Steal..........{0}", steal);
             Console.ReadLine();
 
             Opponent.CreateFirstOpponent();

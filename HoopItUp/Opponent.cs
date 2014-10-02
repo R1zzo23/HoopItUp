@@ -39,15 +39,15 @@ namespace HoopItUp
             steal = 17;
 
             Console.WriteLine("Here is your first challenge:");
-            Console.WriteLine("Name: {0}", FullName);
-            Console.WriteLine("Height: {0}'{1}\"", feet, inches);
-            Console.WriteLine("Weight: {0}", weight);
-            Console.WriteLine("Shooting: {0}", shooting);
-            Console.WriteLine("Drive: {0}", drive);
-            Console.WriteLine("Handle: {0}", handle);
-            Console.WriteLine("Rebound: {0}", rebound);
-            Console.WriteLine("Defense: {0}", defense);
-            Console.WriteLine("Steal: {0}", steal);
+            Console.WriteLine("Name...........{0}", FullName);
+            Console.WriteLine("Height.........{0}'{1}\"", feet, inches);
+            Console.WriteLine("Weight.........{0}", weight);
+            Console.WriteLine("Shooting.......{0}", shooting);
+            Console.WriteLine("Drive..........{0}", drive);
+            Console.WriteLine("Handle.........{0}", handle);
+            Console.WriteLine("Rebound........{0}", rebound);
+            Console.WriteLine("Defense........{0}", defense);
+            Console.WriteLine("Steal..........{0}", steal);
             Console.ReadLine();
             Console.Clear();
 

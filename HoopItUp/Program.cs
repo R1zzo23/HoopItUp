@@ -10,13 +10,13 @@ namespace HoopItUp
 
         static void Main(string[] args)
         {
-            Console.WriteLine("====================================================");
-            Console.WriteLine("|                    Hoop It Up                    |");
-            Console.WriteLine("|           Written & Designed by R1zzo23          |");
-            Console.WriteLine("====================================================");
+            Console.WriteLine("          ====================================================");
+            Console.WriteLine("          |                    Hoop It Up                    |");
+            Console.WriteLine("          |           Written & Designed by R1zzo23          |");
+            Console.WriteLine("          ====================================================");
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("                Press Enter to Start                ");
+            Console.WriteLine("                          Press Enter to Start                ");
             Console.ReadLine();
 
             Console.Clear();
